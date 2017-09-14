@@ -1,0 +1,28 @@
+apply plugin: "java-library"
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+artifacts {
+	archives sourcesJar
+}
+
+repositories {
+	mavenCentral()
+	jcenter()
+	maven { url 'https://jitpack.io' }
+}
+
+dependencyManagement {
+	imports {
+		mavenBom 'io.spring.platform:platform-bom:Brussels-SR4'
+	}
+}
+
+dependencies {
+	compileOnly(
+			'org.projectlombok:lombok',
+	)
+}

@@ -1,0 +1,9 @@
+plugins {
+	id "io.spring.dependency-management" version "1.0.3.RELEASE"
+}
+
+apply from: "gradle/java-library.gradle"
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.1'
+}
